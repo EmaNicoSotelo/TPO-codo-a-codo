@@ -1,0 +1,446 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(0deg, rgba(4, 128, 200, 1) 0%, rgba(9, 9, 121, 1) 12%, rgba(2, 0, 36, 1) 35%, rgba(0, 0, 0, 1) 40%);
+    font-family: 'Allerta Stencil', sans-serif;
+}
+
+.contenedorPlaneta {
+    width: 90%;
+    margin: 10px auto;
+    margin-bottom: 0px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, auto);
+
+    grid-template-areas: "header                         header"
+        "nav                            nav"
+        "planeta3d                      datosPrincipales"
+        "contenidoPrincipalPlaneta      contenidoPrincipalPlaneta"
+        "footer                         footer";
+}
+
+.contenedorPlaneta .header,
+.contenedorPlaneta .nav,
+.contenedorPlaneta .contenidoPrincipalPlaneta,
+.contenedorPlaneta .datosPrincipales,
+.contenedorPlaneta .footer {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    border-left: 5px solid #ff006e;
+    border-radius: 50%;
+    animation: rightrotate 900ms linear infinite;
+}
+
+.logo::before,
+.logo::after {
+    content: '';
+    width: 60px;
+    height: 60px;
+    display: block;
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border-right: 4px solid #3a86ff;
+    border-radius: 50%;
+    animation: leftrotate 900ms linear infinite;
+}
+
+.logo::after {
+    width: 30px;
+    height: 30px;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    border: 0;
+    border-left: 3px solid #ffbe0b;
+    animation: none;
+}
+
+@keyframes leftrotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(720deg);
+    }
+}
+
+@keyframes rightrotate {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.contenedorPlaneta .header {
+    padding: 20px;
+    font-family: 'Syncopate', sans-serif;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0) 75%);
+    text-align: left;
+    border-radius: 15px;
+    color: white;
+    display: grid;
+    grid-template-columns: 100px auto;
+    align-items: center;
+    grid-gap: 20px;
+    grid-area: header;
+}
+
+.contenedorPlaneta .nav {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(0, 0, 0, 0) 100%);
+    color: black;
+    grid-area: nav;
+    padding: 10px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: 1fr
+}
+
+.contenedorPlaneta .nav .boton {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 10px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
+}
+
+.boton img {
+    width: 65%;
+}
+
+.boton p {
+    font-size: small;
+
+    color: #fff;
+}
+
+.planeta3d {
+    width: 100%;
+    grid-area: planeta3d;
+}
+
+.contenedorPlaneta .datosPrincipales {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+    text-align: center;
+    grid-area: datosPrincipales;
+
+    width: 95%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr repeat(3, 2fr);
+}
+
+.datosPrincipales div {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    font-family: 'Special Elite', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.datosPrincipales h2 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-family: 'Special Elite', cursive;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedorPlaneta .contenidoPrincipalPlaneta {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 1%, rgba(255, 255, 255, 0.3) 9%, rgba(255, 255, 255, 0.3) 29%, rgba(255, 255, 255, 0.3029586834733894) 50%, rgba(255, 255, 255, 0.3) 85%, rgba(0, 0, 0, 0) 98%);
+    font-family: 'Major Mono Display', monospace;
+    color: white;
+    margin-top: 20px;
+    grid-area: contenidoPrincipalPlaneta;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 10px;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+.dato {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 25px;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.dato img {
+    width: 65%;
+    border-radius: 20px;
+}
+
+
+.contenedorPlaneta .footer {
+    background-image: url(../img/footer.jpg);
+    background-size: contain;
+
+    font-family: 'Syncopate', sans-serif;
+    color: black;
+    margin-bottom: 0px;
+    border-radius: 10px 10px 0px 0px;
+    grid-area: footer;
+
+}
+
+.redesSociales {
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-content: center;
+}
+
+svg {
+    fill: #fff;
+    height: 50px;
+    width: 50px;
+    margin: 20px;
+}
+
+#slider {
+    color: #fff;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide h3,
+.slide p {
+    text-align: center;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.40) 50%, rgba(0, 0, 0, 0) 100%);
+
+}
+
+.container {
+    width: 1600px;
+    margin: auto;
+}
+
+.subcontainer {
+    width: 95%;
+    margin: auto;
+}
+
+.slide-img {
+    width: 100%;
+    height: 275px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.slide-img:hover {
+    box-shadow: 0 0 0 200px rgba(0, 0, 0, 0.7) inset;
+}
+
+.slide-img a {
+    opacity: 0;
+    text-decoration: none;
+    transform: scale(0);
+    transition: 0.8s;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.slide-img:hover a {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.img-mercurio {
+    background-image: url("../img/mercurio.png");
+
+}
+
+.img-venus {
+    background-image: url("../img/venus.png");
+
+}
+
+.img-tierra {
+    background-image: url("../img/tierra.png");
+
+}
+
+.img-marte {
+    background-image: url("../img/marte.png");
+}
+
+.img-jupiter {
+    background-image: url("../img/jupiter.png");
+
+}
+
+.img-saturno {
+    background-image: url("../img/saturno.png");
+
+}
+
+.img-urano {
+    background-image: url("../img/urano.png");
+
+}
+
+.img-neptuno {
+    background-image: url("../img/neptuno.png");
+
+}
+
+.img-sol {
+    background-image: url("../img/sol.png");
+}
+
+.img-luna {
+    background-image: url("../img/luna.png");
+
+}
+
+.subscripcion>h2{
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.subscribirse{
+    text-decoration: none;
+    margin: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.subscribirse>p{
+    margin: 5px;
+    font-size: large;
+    padding: 10px;
+    color: #fff;
+    background-color: rgba(34, 0, 128, 0.75);
+    border-radius: 15px;
+}
+
+.subscribirse>p:hover{
+    margin: 5px;
+    font-size: large;
+    padding: 10px;
+    color: rgb(34, 0, 128);
+    background-color: white;
+    border-radius: 15px;
+}
+
+
+@media (hover: hover) {
+    .contenedorIndex .nav .boton:hover {
+        background: rgba(57, 65, 146, 0.322);
+    }
+}
+
+
+@media screen and (max-width:1600px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@media (hover: hover) {
+    .contenedorPlaneta .nav .boton:hover {
+        background: rgba(0, 0, 0, 0.25);
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .contenedorPlaneta {
+        width: 90%;
+        margin: 10px auto;
+        margin-bottom: 0px;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, auto);
+
+        grid-template-areas: "header                         header"
+            "nav                            nav"
+            "planeta3d                      planeta3d"
+            "datosPrincipales                      datosPrincipales"
+            "contenidoPrincipalPlaneta      contenidoPrincipalPlaneta"
+            "footer                         footer";
+    }
+
+
+    .contenedorPlaneta .nav {
+
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(0, 0, 0, 0) 100%);
+        color: black;
+        grid-area: nav;
+
+        padding: 10px;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 1fr 1fr
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .contenedorPlaneta .nav {
+
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(0, 0, 0, 0) 100%);
+        color: black;
+        grid-area: nav;
+
+        padding: 10px;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1fr 1fr
+    }
+
+    .contenedorPlaneta .dato {
+        border-radius: 15px;
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+    }
+}
